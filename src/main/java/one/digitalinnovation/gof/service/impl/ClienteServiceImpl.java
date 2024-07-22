@@ -2,13 +2,10 @@ package one.digitalinnovation.gof.service.impl;
 
 import java.util.Optional;
 
+import one.digitalinnovation.gof.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import one.digitalinnovation.gof.model.Cliente;
-import one.digitalinnovation.gof.model.ClienteRepository;
-import one.digitalinnovation.gof.model.Endereco;
-import one.digitalinnovation.gof.model.EnderecoRepository;
 import one.digitalinnovation.gof.service.ClienteService;
 import one.digitalinnovation.gof.service.ViaCepService;
 
@@ -49,6 +46,7 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public void inserir(Cliente cliente) {
 		salvarClienteComCep(cliente);
+		cliente.setStatus(Status.ATIVO);
 	}
 
 	@Override

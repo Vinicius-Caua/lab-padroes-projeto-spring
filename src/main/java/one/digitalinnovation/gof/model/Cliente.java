@@ -13,11 +13,24 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
+	private Status status;
 	@ManyToOne
 	private Endereco endereco;
 
+	public Cliente(String status) {
+		this.status = Status.INATIVO;
+	}
+
 	public Long getId() {
 		return id;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public void setId(Long id) {
